@@ -31,7 +31,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignIn() {
+export default function SignIn({ setName }) {
   const [disabled, setDisabled] = useState(true);
   const [string, setString] = useState("");
   console.log(string);
@@ -82,11 +82,14 @@ export default function SignIn() {
               onChange={(e) => setString(e.target.value)}
             />
             <Button
-              type="submit"
+              type="button"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               disabled={disabled}
+              onClick={() => {
+                setName(string);
+              }}
             >
               はじめる
             </Button>
