@@ -1,7 +1,7 @@
 import React from "react";
 
 const MessageInputField = () => {
-  return <div>MessageInputField</div>;
+  return <div style={{ gridRow: 2 }}>MessageInputField</div>;
 };
 
 export default MessageInputField;
