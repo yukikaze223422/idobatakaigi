@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
+import { set } from "firebase/database";
+import { messageRef } from "../firebase";
 
 const MessageField = ({ name, setText, text }) => {
   const [isComposed, setIsComposed] = useState(false);
@@ -19,7 +21,14 @@ const MessageField = ({ name, setText, text }) => {
         if (text === "") return;
 
         if (e.key === "Enter") {
-          console.log("push message to firebase");
+          /*           set(ref(db, "message"), {
+            text: "はむさん",
+            name,
+          }); */
+          set(messageRef, {
+            name: "はむさん",
+            text,
+          });
           setText("");
           e.preventDefault();
         }
