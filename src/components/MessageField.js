@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
-import { set } from "firebase/database";
-import { messageRef } from "../firebase";
+import { db } from "../firebase";
+import { set, ref, push } from "firebase/database";
 
 const MessageField = ({ name, setText, text }) => {
   const [isComposed, setIsComposed] = useState(false);
@@ -14,7 +14,7 @@ const MessageField = ({ name, setText, text }) => {
         setText(e.target.value);
       }}
       variant="standard"
-      onKeyDown={(e) => {
+      onKeyDown={async (e) => {
         if (isComposed) return;
 
         const text = e.target.value;
@@ -25,7 +25,9 @@ const MessageField = ({ name, setText, text }) => {
             text: "はむさん",
             name,
           }); */
-          set(messageRef, {
+          const dbref = ref(db, "messages");
+          const newPostRef = push(dbref);
+          set(newPostRef, {
             name: "はむさん",
             text,
           });
