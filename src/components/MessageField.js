@@ -3,13 +3,15 @@ import TextField from "@mui/material/TextField";
 import { db } from "../firebase";
 import { set, ref, push } from "firebase/database";
 
-const MessageField = ({ name, setText, text }) => {
+const MessageField = ({ inputEl, name, setText, text }) => {
   const [isComposed, setIsComposed] = useState(false);
   console.log({ text });
 
   return (
     <TextField
+      autoFocus
       fullWidth={true}
+      inputRef={inputEl}
       onChange={(e) => {
         setText(e.target.value);
       }}

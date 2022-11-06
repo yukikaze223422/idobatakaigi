@@ -4,7 +4,7 @@ import { set, ref, push } from "firebase/database";
 import IconButton from "@mui/material/IconButton";
 import SendIcon from "@mui/icons-material/Send";
 
-const MessageSubmitButton = ({ name, setText, text }) => {
+const MessageSubmitButton = ({ inputEl, name, setText, text }) => {
   return (
     <IconButton
       disabled={text === ""}
@@ -16,6 +16,7 @@ const MessageSubmitButton = ({ name, setText, text }) => {
           text,
         });
         setText("");
+        inputEl.current.focus();
       }}
     >
       <SendIcon />
