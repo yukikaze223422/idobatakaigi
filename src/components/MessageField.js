@@ -21,10 +21,6 @@ const MessageField = ({ name, setText, text }) => {
         if (text === "") return;
 
         if (e.key === "Enter") {
-          /*           set(ref(db, "message"), {
-            text: "はむさん",
-            name,
-          }); */
           const dbref = ref(db, "messages");
           const newPostRef = push(dbref);
           set(newPostRef, {

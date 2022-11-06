@@ -3,6 +3,7 @@ import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import { gravatarPath } from "../gravatar";
 import MessageField from "./MessageField";
+import MessageSubmitButton from "./MessageSubmitButton";
 
 const MessageInputField = ({ name }) => {
   const [text, setText] = useState("");
@@ -17,7 +18,7 @@ const MessageInputField = ({ name }) => {
           <MessageField name={name} setText={setText} text={text} />
         </Grid>
         <Grid item xs={1}>
-          ボタン
+          <MessageSubmitButton name={name} setText={setText} text={text} />
         </Grid>
       </Grid>
     </div>
