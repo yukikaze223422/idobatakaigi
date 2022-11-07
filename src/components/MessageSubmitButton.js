@@ -12,7 +12,7 @@ const MessageSubmitButton = ({ inputEl, name, setText, text }) => {
         const dbref = ref(db, "messages");
         const newPostRef = push(dbref);
         set(newPostRef, {
-          name: "はむさん",
+          name,
           text,
         });
         setText("");
